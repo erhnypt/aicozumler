@@ -1,0 +1,289 @@
+{
+  "common": {
+    "loading": "جاري التحميل...",
+    "error": "خطأ",
+    "success": "نجح",
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "delete": "حذف",
+    "edit": "تحرير",
+    "create": "إنشاء",
+    "update": "تحديث",
+    "search": "بحث",
+    "filter": "تصفية",
+    "clear": "مسح",
+    "back": "رجوع",
+    "next": "التالي",
+    "previous": "السابق",
+    "close": "إغلاق",
+    "open": "فتح",
+    "yes": "نعم",
+    "no": "لا",
+    "submit": "إرسال",
+    "reset": "إعادة تعيين",
+    "confirm": "تأكيد",
+    "required": "مطلوب",
+    "optional": "اختياري"
+  },
+  "navigation": {
+    "home": "الرئيسية",
+    "solutions": "الحلول",
+    "pricing": "الأسعار",
+    "about": "حولنا",
+    "contact": "اتصل بنا",
+    "blog": "المدونة",
+    "dashboard": "لوحة التحكم",
+    "login": "تسجيل الدخول",
+    "register": "إنشاء حساب",
+    "logout": "تسجيل الخروج",
+    "profile": "الملف الشخصي",
+    "settings": "الإعدادات"
+  },
+  "auth": {
+    "login": {
+      "title": "تسجيل الدخول",
+      "subtitle": "مرحباً بعودتك! يرجى تسجيل الدخول إلى حسابك",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "rememberMe": "تذكرني",
+      "forgotPassword": "نسيت كلمة المرور؟",
+      "loginButton": "تسجيل الدخول",
+      "noAccount": "ليس لديك حساب؟",
+      "signUpLink": "إنشاء حساب جديد",
+      "errors": {
+        "invalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة",
+        "emailNotConfirmed": "يرجى تأكيد بريدك الإلكتروني أولاً",
+        "tooManyAttempts": "محاولات كثيرة جداً. يرجى المحاولة لاحقاً"
+      }
+    },
+    "register": {
+      "title": "إنشاء حساب جديد",
+      "subtitle": "انضم إلينا اليوم واكتشف قوة الذكاء الاصطناعي",
+      "firstName": "الاسم الأول",
+      "lastName": "اسم العائلة",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "confirmPassword": "تأكيد كلمة المرور",
+      "company": "الشركة",
+      "phone": "رقم الهاتف",
+      "agreeTerms": "أوافق على الشروط والأحكام",
+      "subscribeNewsletter": "اشتراك في النشرة الإخبارية",
+      "registerButton": "إنشاء حساب",
+      "haveAccount": "لديك حساب بالفعل؟",
+      "loginLink": "تسجيل الدخول",
+      "errors": {
+        "passwordMismatch": "كلمات المرور غير متطابقة",
+        "weakPassword": "كلمة المرور ضعيفة جداً",
+        "emailExists": "البريد الإلكتروني مستخدم بالفعل"
+      }
+    }
+  },
+  "dashboard": {
+    "title": "لوحة التحكم",
+    "welcome": "مرحباً، {{name}}!",
+    "tabs": {
+      "overview": "نظرة عامة",
+      "data": "البيانات",
+      "tenants": "المستأجرين",
+      "subscription": "الاشتراك",
+      "analytics": "التحليلات",
+      "settings": "الإعدادات"
+    },
+    "overview": {
+      "title": "نظرة عامة",
+      "totalUsers": "إجمالي المستخدمين",
+      "activeProjects": "المشاريع النشطة",
+      "revenue": "الإيرادات",
+      "growth": "النمو"
+    },
+    "subscription": {
+      "title": "إدارة الاشتراك",
+      "currentPlan": "الخطة الحالية",
+      "usage": "الاستخدام",
+      "billing": "الفواتير",
+      "upgrade": "ترقية الخطة",
+      "plans": {
+        "free": "مجاني",
+        "starter": "مبتدئ",
+        "professional": "محترف",
+        "enterprise": "مؤسسي"
+      }
+    }
+  },
+  "tenants": {
+    "title": "إدارة المستأجرين",
+    "createTenant": "إنشاء مستأجر جديد",
+    "tenantName": "اسم المستأجر",
+    "sector": "القطاع",
+    "subdomain": "النطاق الفرعي",
+    "status": "الحالة",
+    "actions": "الإجراءات",
+    "sectors": {
+      "dentist": "طب الأسنان",
+      "beauty": "التجميل",
+      "restaurant": "المطاعم",
+      "fitness": "اللياقة البدنية",
+      "retail": "التجارة"
+    },
+    "statuses": {
+      "active": "نشط",
+      "inactive": "غير نشط",
+      "pending": "في الانتظار"
+    }
+  },
+  "analytics": {
+    "title": "التحليلات والإحصائيات",
+    "visitors": "الزوار",
+    "pageViews": "مشاهدات الصفحة",
+    "conversionRate": "معدل التحويل",
+    "bounceRate": "معدل الارتداد",
+    "topPages": "الصفحات الأكثر زيارة",
+    "userActivity": "نشاط المستخدمين",
+    "performance": "الأداء",
+    "loadTime": "وقت التحميل",
+    "export": "تصدير البيانات"
+  },
+  "subscription": {
+    "title": "الاشتراكات",
+    "plans": {
+      "free": {
+        "name": "مجاني",
+        "description": "للبدء والتجربة",
+        "features": [
+          "حتى 3 مستخدمين",
+          "5 جيجابايت تخزين",
+          "دعم أساسي"
+        ]
+      },
+      "starter": {
+        "name": "مبتدئ",
+        "description": "للشركات الصغيرة",
+        "features": [
+          "حتى 10 مستخدمين",
+          "50 جيجابايت تخزين",
+          "دعم عبر البريد الإلكتروني"
+        ]
+      },
+      "professional": {
+        "name": "محترف",
+        "description": "للشركات المتنامية",
+        "features": [
+          "حتى 50 مستخدم",
+          "500 جيجابايت تخزين",
+          "دعم هاتفي",
+          "تحليلات متقدمة"
+        ]
+      },
+      "enterprise": {
+        "name": "مؤسسي",
+        "description": "للمؤسسات الكبيرة",
+        "features": [
+          "مستخدمين غير محدودين",
+          "تخزين غير محدود",
+          "دعم مخصص",
+          "تكاملات مخصصة"
+        ]
+      }
+    },
+    "currentPlan": "الخطة الحالية",
+    "usage": "الاستخدام",
+    "upgrade": "ترقية",
+    "downgrade": "تقليل",
+    "cancel": "إلغاء الاشتراك"
+  },
+  "settings": {
+    "title": "الإعدادات",
+    "profile": "الملف الشخصي",
+    "account": "الحساب",
+    "security": "الأمان",
+    "notifications": "الإشعارات",
+    "privacy": "الخصوصية",
+    "language": "اللغة",
+    "theme": "المظهر",
+    "saveChanges": "حفظ التغييرات"
+  },
+  "encryption": {
+    "title": "إدارة البيانات المشفرة",
+    "encrypt": "تشفير",
+    "decrypt": "فك التشفير",
+    "data": "البيانات",
+    "encryptedData": "البيانات المشفرة",
+    "enterData": "أدخل البيانات للتشفير",
+    "pasteEncrypted": "الصق البيانات المشفرة لفك التشفير"
+  },
+  "theme": {
+    "darkMode": "الوضع الداكن",
+    "lightMode": "الوضع الفاتح",
+    "autoMode": "تلقائي"
+  },
+  "accessibility": {
+    "title": "إعدادات إمكانية الوصول",
+    "fontSize": "حجم الخط",
+    "fontSizes": {
+      "small": "صغير",
+      "medium": "متوسط",
+      "large": "كبير"
+    },
+    "highContrast": "تباين عالي",
+    "highContrastDescription": "يزيد التباين بين النص والخلفية",
+    "keyboardShortcuts": "اختصارات لوحة المفاتيح",
+    "skipToContent": "انتقل إلى المحتوى",
+    "nextElement": "العنصر التالي",
+    "previousElement": "العنصر السابق",
+    "activate": "تفعيل",
+    "closeCancel": "إغلاق/إلغاء",
+    "testTitle": "مركز اختبار إمكانية الوصول",
+    "testDescription": "اختبر توافق موقعك مع معايير إمكانية الوصول",
+    "runTest": "تشغيل اختبار إمكانية الوصول",
+    "overallScore": "النتيجة الإجمالية",
+    "focusElements": "العناصر القابلة للتركيز",
+    "ariaLabels": "تسميات ARIA",
+    "keyboardNavigation": "التنقل بلوحة المفاتيح",
+    "screenReaderSupport": "دعم قارئ الشاشة",
+    "colorContrast": "نتائج اختبار التباين اللوني",
+    "recommendations": "توصيات التحسين"
+  },
+  "errors": {
+    "404": {
+      "title": "الصفحة غير موجودة",
+      "message": "الصفحة التي تبحث عنها غير موجودة أو تم نقلها.",
+      "backHome": "العودة للرئيسية"
+    },
+    "500": {
+      "title": "خطأ في الخادم",
+      "message": "حدث خطأ غير متوقع. يرجى المحاولة لاحقاً.",
+      "tryAgain": "حاول مرة أخرى"
+    },
+    "network": {
+      "title": "خطأ في الاتصال",
+      "message": "تحقق من اتصالك بالإنترنت وحاول مرة أخرى.",
+      "retry": "إعادة المحاولة"
+    }
+  },
+  "forms": {
+    "validation": {
+      "required": "هذا الحقل مطلوب",
+      "email": "يرجى إدخال بريد إلكتروني صحيح",
+      "minLength": "يجب أن يحتوي على {{min}} أحرف على الأقل",
+      "maxLength": "يجب ألا يتجاوز {{max}} حرف",
+      "passwordStrength": "كلمة المرور يجب أن تحتوي على أحرف كبيرة وصغيرة وأرقام"
+    }
+  },
+  "footer": {
+    "company": "الشركة",
+    "about": "حولنا",
+    "careers": "الوظائف",
+    "contact": "اتصل بنا",
+    "support": "الدعم",
+    "help": "المساعدة",
+    "documentation": "التوثيق",
+    "legal": "قانوني",
+    "privacy": "سياسة الخصوصية",
+    "terms": "شروط الاستخدام",
+    "cookies": "سياسة ملفات تعريف الارتباط",
+    "social": "تابعنا",
+    "newsletter": "النشرة الإخبارية",
+    "subscribe": "اشترك",
+    "allRightsReserved": "جميع الحقوق محفوظة"
+  }
+}

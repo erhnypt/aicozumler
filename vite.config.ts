@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import { resolve } from 'node:path'
 import AutoImport from 'unplugin-auto-import/vite'
-import { splitVendorChunkPlugin } from 'vite'
+// import { splitVendorChunkPlugin } from 'vite' // Removed due to conflict with manual chunks
 import { visualizer } from 'rollup-plugin-visualizer'
 
 const base = process.env.BASE_PATH || '/'
@@ -15,7 +15,7 @@ export default defineConfig({
   },
   plugins: [
     react(),
-    splitVendorChunkPlugin(),
+    // splitVendorChunkPlugin(), // Removed due to conflict with manual chunks
     // Bundle analyzer (only in build mode)
     ...(process.env.ANALYZE ? [visualizer({
       filename: 'dist/bundle-analysis.html',

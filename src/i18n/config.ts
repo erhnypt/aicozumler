@@ -5,6 +5,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 // Dil dosyalarını import et
 import trTranslations from './locales/tr.json';
 import enTranslations from './locales/en.json';
+import arTranslations from './locales/ar.json';
 
 const resources = {
   tr: {
@@ -14,20 +15,7 @@ const resources = {
     translation: enTranslations
   },
   ar: {
-    translation: {
-      // Arabic translations would go here
-      // For now, fallback to English
-      ...enTranslations,
-      common: {
-        ...enTranslations.common,
-        loading: "جاري التحميل...",
-        error: "خطأ",
-        success: "نجح",
-        cancel: "إلغاء",
-        save: "حفظ",
-        delete: "حذف"
-      }
-    }
+    translation: arTranslations
   }
 };
 
