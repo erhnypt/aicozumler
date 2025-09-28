@@ -1,0 +1,57 @@
+
+import type { RouteObject } from "react-router-dom";
+import NotFound from "../pages/NotFound";
+import Home from "../pages/home/page";
+import Solutions from "../pages/solutions/page";
+import Pricing from "../pages/pricing/page";
+import Contact from "../pages/contact/page";
+import About from "../pages/about/page";
+import Blog from "../pages/blog/page";
+import Login from "../pages/auth/login";
+import Register from "../pages/auth/register";
+import Dashboard from "../pages/dashboard/page";
+
+const routes: RouteObject[] = [
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/cozumler",
+    element: <Solutions />,
+  },
+  {
+    path: "/fiyatlandirma",
+    element: <Pricing />,
+  },
+  {
+    path: "/iletisim",
+    element: <Contact />,
+  },
+  {
+    path: "/hakkimizda",
+    element: <About />,
+  },
+  {
+    path: "/blog",
+    element: <Blog />,
+  },
+  {
+    path: "/giris",
+    element: <Login />,
+  },
+  {
+    path: "/kayit",
+    element: <Register />,
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
+  },
+  {
+    path: "*",
+    element: <NotFound />,
+  },
+];
+
+export default routes;

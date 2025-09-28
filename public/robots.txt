@@ -1,0 +1,28 @@
+User-agent: *
+Allow: /
+
+# Ana sayfa ve genel sayfalar
+Allow: /
+Allow: /cozumler
+Allow: /fiyatlandirma
+Allow: /hakkimizda
+Allow: /iletisim
+Allow: /blog
+
+# Auth sayfaları (SEO'ya gerek yok)
+Disallow: /giris
+Disallow: /kayit
+Disallow: /dashboard
+
+# Tenant sayfaları (dinamik, sitemap'te listelenecek)
+Allow: /dentist/
+Allow: /beauty/
+Allow: /restaurant/
+Allow: /fitness/
+Allow: /retail/
+
+# Sitemap
+Sitemap: https://aicozumleri.com/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1

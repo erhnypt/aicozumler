@@ -1,0 +1,371 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "update": "Update",
+    "search": "Search",
+    "filter": "Filter",
+    "clear": "Clear",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "close": "Close",
+    "open": "Open",
+    "yes": "Yes",
+    "no": "No",
+    "submit": "Submit",
+    "reset": "Reset",
+    "confirm": "Confirm",
+    "required": "Required",
+    "optional": "Optional"
+  },
+  "navigation": {
+    "home": "Home",
+    "solutions": "Solutions",
+    "pricing": "Pricing",
+    "about": "About",
+    "contact": "Contact",
+    "blog": "Blog",
+    "dashboard": "Dashboard",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "profile": "Profile",
+    "settings": "Settings"
+  },
+  "auth": {
+    "login": {
+      "title": "Login",
+      "subtitle": "Sign in to your account",
+      "email": "Email",
+      "password": "Password",
+      "forgotPassword": "Forgot Password",
+      "rememberMe": "Remember Me",
+      "loginButton": "Sign In",
+      "noAccount": "Don't have an account?",
+      "createAccount": "Create Account",
+      "loginWithGoogle": "Sign in with Google",
+      "loginWithGithub": "Sign in with GitHub"
+    },
+    "register": {
+      "title": "Register",
+      "subtitle": "Create a new account",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "company": "Company",
+      "phone": "Phone",
+      "agreeTerms": "I agree to the terms and conditions",
+      "registerButton": "Sign Up",
+      "haveAccount": "Already have an account?",
+      "loginHere": "Sign in here"
+    },
+    "errors": {
+      "invalidCredentials": "Invalid email or password",
+      "emailRequired": "Email is required",
+      "passwordRequired": "Password is required",
+      "passwordTooShort": "Password must be at least 6 characters",
+      "passwordMismatch": "Passwords do not match",
+      "emailInvalid": "Please enter a valid email address",
+      "userExists": "This email address is already in use",
+      "networkError": "Network error. Please try again."
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "AI Solutions to Grow Your Business",
+      "subtitle": "All-in-one platform for marketing, content creation, customer service and more with aicozumleri.com. Take your SME to the future.",
+      "getStarted": "Get Started",
+      "learnMore": "Learn More",
+      "watchDemo": "Watch Demo",
+      "requestDemo": "Request Demo"
+    },
+    "features": {
+      "title": "Why AI Solutions?",
+      "subtitle": "Features that will take your business to the next level",
+      "aiPowered": {
+        "title": "AI-Powered Solutions",
+        "description": "Automate your business with the latest artificial intelligence technologies"
+      },
+      "easyIntegration": {
+        "title": "Easy Integration",
+        "description": "Seamless integration with your existing systems"
+      },
+      "realTimeAnalytics": {
+        "title": "Real-Time Analytics",
+        "description": "Track and analyze your business data instantly"
+      },
+      "multiTenant": {
+        "title": "Multi-Tenant System",
+        "description": "Separate and secure data management for each customer"
+      },
+      "scalable": {
+        "title": "Scalable Infrastructure",
+        "description": "The system grows as your business grows"
+      },
+      "support": {
+        "title": "24/7 Support",
+        "description": "Our expert team is always with you"
+      }
+    },
+    "testimonials": {
+      "title": "Customer Reviews",
+      "subtitle": "Listen to success stories"
+    },
+    "cta": {
+      "title": "Get Started Now",
+      "subtitle": "Feel the power of AI solutions in your business",
+      "startTrial": "Free Trial",
+      "contactSales": "Contact Sales Team"
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome",
+    "overview": "Overview",
+    "analytics": "Analytics",
+    "subscription": "Subscription",
+    "tenants": "Tenants",
+    "settings": "Settings",
+    "stats": {
+      "totalUsers": "Total Users",
+      "activeUsers": "Active Users",
+      "revenue": "Revenue",
+      "growth": "Growth"
+    }
+  },
+  "subscription": {
+    "title": "Subscription Plans",
+    "currentPlan": "Current Plan",
+    "upgradePlan": "Upgrade Plan",
+    "downgradePlan": "Downgrade Plan",
+    "cancelPlan": "Cancel Plan",
+    "billingCycle": "Billing Cycle",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "plans": {
+      "free": {
+        "name": "Free",
+        "description": "For small projects",
+        "price": "$0",
+        "features": [
+          "5 AI queries/month",
+          "1 project",
+          "Email support",
+          "Basic analytics"
+        ]
+      },
+      "basic": {
+        "name": "Basic",
+        "description": "For small businesses",
+        "price": "$29",
+        "features": [
+          "100 AI queries/month",
+          "5 projects",
+          "Priority support",
+          "Advanced analytics",
+          "API access"
+        ]
+      },
+      "premium": {
+        "name": "Premium",
+        "description": "For growing businesses",
+        "price": "$89",
+        "features": [
+          "1000 AI queries/month",
+          "20 projects",
+          "24/7 support",
+          "Custom integrations",
+          "White label solution"
+        ]
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "description": "For large organizations",
+        "price": "Custom Pricing",
+        "features": [
+          "Unlimited AI queries",
+          "Unlimited projects",
+          "Dedicated account manager",
+          "On-premise deployment",
+          "SLA guarantee"
+        ]
+      }
+    }
+  },
+  "tenant": {
+    "title": "Tenant Management",
+    "createTenant": "New Tenant",
+    "editTenant": "Edit Tenant",
+    "deleteTenant": "Delete Tenant",
+    "tenantName": "Tenant Name",
+    "tenantSlug": "Tenant URL",
+    "sector": "Sector",
+    "status": "Status",
+    "createdAt": "Created At",
+    "members": "Members",
+    "sectors": {
+      "dentist": "Dentistry",
+      "beauty": "Beauty & Aesthetics",
+      "restaurant": "Restaurant",
+      "fitness": "Fitness & Sports",
+      "retail": "Retail"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive",
+      "suspended": "Suspended"
+    }
+  },
+  "analytics": {
+    "title": "Analytics Dashboard",
+    "overview": "Overview",
+    "performance": "Performance",
+    "users": "Users",
+    "revenue": "Revenue",
+    "reports": "Reports",
+    "export": "Export",
+    "dateRange": "Date Range",
+    "lastWeek": "Last Week",
+    "lastMonth": "Last Month",
+    "lastYear": "Last Year",
+    "custom": "Custom",
+    "metrics": {
+      "pageViews": "Page Views",
+      "uniqueVisitors": "Unique Visitors",
+      "bounceRate": "Bounce Rate",
+      "avgSessionDuration": "Avg Session Duration",
+      "conversionRate": "Conversion Rate",
+      "revenue": "Revenue",
+      "orders": "Orders",
+      "customers": "Customers"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "profile": "Profile Settings",
+    "account": "Account Settings",
+    "security": "Security",
+    "notifications": "Notifications",
+    "integrations": "Integrations",
+    "billing": "Billing",
+    "general": "General Settings",
+    "language": "Language",
+    "timezone": "Timezone",
+    "currency": "Currency",
+    "theme": "Theme",
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode",
+    "autoMode": "Auto Mode"
+  },
+  "accessibility": {
+    "title": "Accessibility Settings",
+    "fontSize": "Font Size",
+    "fontSizes": {
+      "small": "Small",
+      "medium": "Medium",
+      "large": "Large"
+    },
+    "highContrast": "High Contrast",
+    "highContrastDescription": "Increases contrast between text and background",
+    "keyboardShortcuts": "Keyboard Shortcuts",
+    "skipToContent": "Skip to content",
+    "nextElement": "Next element",
+    "previousElement": "Previous element",
+    "activate": "Activate",
+    "closeCancel": "Close/Cancel",
+    "testTitle": "Accessibility Test Center",
+    "testDescription": "Test your site's compliance with accessibility standards",
+    "runTest": "Run Accessibility Test",
+    "overallScore": "Overall Score",
+    "focusElements": "Focusable Elements",
+    "ariaLabels": "ARIA Labels",
+    "keyboardNavigation": "Keyboard Navigation",
+    "screenReaderSupport": "Screen Reader Support",
+    "colorContrast": "Color Contrast Test Results",
+    "recommendations": "Improvement Recommendations"
+  },
+  "errors": {
+    "404": {
+      "title": "Page Not Found",
+      "message": "The page you are looking for does not exist or may have been moved.",
+      "backHome": "Back to Home"
+    },
+    "500": {
+      "title": "Server Error",
+      "message": "An unexpected error occurred. Please try again later.",
+      "tryAgain": "Try Again"
+    },
+    "network": {
+      "title": "Connection Error",
+      "message": "Check your internet connection and try again.",
+      "retry": "Retry"
+    }
+  },
+  "forms": {
+    "validation": {
+      "required": "This field is required",
+      "email": "Please enter a valid email address",
+      "minLength": "Must be at least {{count}} characters",
+      "maxLength": "Must be at most {{count}} characters",
+      "pattern": "Invalid format",
+      "numeric": "Only numbers allowed",
+      "phone": "Please enter a valid phone number",
+      "url": "Please enter a valid URL",
+      "date": "Please enter a valid date",
+      "passwordMatch": "Passwords do not match"
+    },
+    "placeholders": {
+      "email": "example@email.com",
+      "password": "Enter your password",
+      "firstName": "Your first name",
+      "lastName": "Your last name",
+      "company": "Company name",
+      "phone": "+1 555 123 45 67",
+      "search": "Search...",
+      "message": "Write your message..."
+    }
+  },
+  "dates": {
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "tomorrow": "Tomorrow",
+    "thisWeek": "This Week",
+    "lastWeek": "Last Week",
+    "thisMonth": "This Month",
+    "lastMonth": "Last Month",
+    "thisYear": "This Year",
+    "lastYear": "Last Year",
+    "months": {
+      "january": "January",
+      "february": "February",
+      "march": "March",
+      "april": "April",
+      "may": "May",
+      "june": "June",
+      "july": "July",
+      "august": "August",
+      "september": "September",
+      "october": "October",
+      "november": "November",
+      "december": "December"
+    },
+    "days": {
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday"
+    }
+  }
+}

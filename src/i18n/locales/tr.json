@@ -1,0 +1,371 @@
+{
+  "common": {
+    "loading": "Yükleniyor...",
+    "error": "Hata",
+    "success": "Başarılı",
+    "cancel": "İptal",
+    "save": "Kaydet",
+    "delete": "Sil",
+    "edit": "Düzenle",
+    "create": "Oluştur",
+    "update": "Güncelle",
+    "search": "Ara",
+    "filter": "Filtrele",
+    "clear": "Temizle",
+    "back": "Geri",
+    "next": "İleri",
+    "previous": "Önceki",
+    "close": "Kapat",
+    "open": "Aç",
+    "yes": "Evet",
+    "no": "Hayır",
+    "submit": "Gönder",
+    "reset": "Sıfırla",
+    "confirm": "Onayla",
+    "required": "Zorunlu",
+    "optional": "Opsiyonel"
+  },
+  "navigation": {
+    "home": "Ana Sayfa",
+    "solutions": "Çözümler",
+    "pricing": "Fiyatlandırma",
+    "about": "Hakkımızda",
+    "contact": "İletişim",
+    "blog": "Blog",
+    "dashboard": "Dashboard",
+    "login": "Giriş Yap",
+    "register": "Kayıt Ol",
+    "logout": "Çıkış Yap",
+    "profile": "Profil",
+    "settings": "Ayarlar"
+  },
+  "auth": {
+    "login": {
+      "title": "Giriş Yap",
+      "subtitle": "Hesabınıza giriş yapın",
+      "email": "E-posta",
+      "password": "Şifre",
+      "forgotPassword": "Şifremi Unuttum",
+      "rememberMe": "Beni Hatırla",
+      "loginButton": "Giriş Yap",
+      "noAccount": "Hesabınız yok mu?",
+      "createAccount": "Hesap Oluşturun",
+      "loginWithGoogle": "Google ile Giriş",
+      "loginWithGithub": "GitHub ile Giriş"
+    },
+    "register": {
+      "title": "Kayıt Ol",
+      "subtitle": "Yeni hesap oluşturun",
+      "firstName": "Ad",
+      "lastName": "Soyad",
+      "email": "E-posta",
+      "password": "Şifre",
+      "confirmPassword": "Şifre Tekrar",
+      "company": "Şirket",
+      "phone": "Telefon",
+      "agreeTerms": "Kullanım şartlarını kabul ediyorum",
+      "registerButton": "Kayıt Ol",
+      "haveAccount": "Zaten hesabınız var mı?",
+      "loginHere": "Buradan giriş yapın"
+    },
+    "errors": {
+      "invalidCredentials": "Geçersiz e-posta veya şifre",
+      "emailRequired": "E-posta adresi gerekli",
+      "passwordRequired": "Şifre gerekli",
+      "passwordTooShort": "Şifre en az 6 karakter olmalı",
+      "passwordMismatch": "Şifreler eşleşmiyor",
+      "emailInvalid": "Geçerli bir e-posta adresi girin",
+      "userExists": "Bu e-posta adresi zaten kullanılıyor",
+      "networkError": "Bağlantı hatası. Lütfen tekrar deneyin."
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "İşinizi Büyütmek İçin Yapay Zeka Çözümleri",
+      "subtitle": "aicozumleri.com ile pazarlama, içerik üretimi, müşteri hizmetleri ve daha fazlası için tek platform. KOBİ'nizi geleceğe taşıyın.",
+      "getStarted": "Hemen Başla",
+      "learnMore": "Daha Fazla Bilgi",
+      "watchDemo": "Demo İzle",
+      "requestDemo": "Demo Talep Et"
+    },
+    "features": {
+      "title": "Neden AI Çözümler?",
+      "subtitle": "İşinizi bir sonraki seviyeye taşıyacak özellikler",
+      "aiPowered": {
+        "title": "AI Destekli Çözümler",
+        "description": "En son yapay zeka teknolojileri ile işinizi otomatikleştirin"
+      },
+      "easyIntegration": {
+        "title": "Kolay Entegrasyon",
+        "description": "Mevcut sistemlerinizle sorunsuz entegrasyon"
+      },
+      "realTimeAnalytics": {
+        "title": "Gerçek Zamanlı Analitik",
+        "description": "İş verilerinizi anlık olarak takip edin ve analiz edin"
+      },
+      "multiTenant": {
+        "title": "Çoklu Kiracı Sistemi",
+        "description": "Her müşteri için ayrı ve güvenli veri yönetimi"
+      },
+      "scalable": {
+        "title": "Ölçeklenebilir Altyapı",
+        "description": "İşiniz büyüdükçe sistem de büyür"
+      },
+      "support": {
+        "title": "7/24 Destek",
+        "description": "Uzman ekibimiz her zaman yanınızda"
+      }
+    },
+    "testimonials": {
+      "title": "Müşteri Yorumları",
+      "subtitle": "Başarı hikayelerini dinleyin"
+    },
+    "cta": {
+      "title": "Hemen Başlayın",
+      "subtitle": "AI çözümlerinin gücünü işinizde hissedin",
+      "startTrial": "Ücretsiz Deneme",
+      "contactSales": "Satış Ekibiyle İletişim"
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Hoş Geldiniz",
+    "overview": "Genel Bakış",
+    "analytics": "Analitik",
+    "subscription": "Abonelik",
+    "tenants": "Kiracılar",
+    "settings": "Ayarlar",
+    "stats": {
+      "totalUsers": "Toplam Kullanıcı",
+      "activeUsers": "Aktif Kullanıcı",
+      "revenue": "Gelir",
+      "growth": "Büyüme"
+    }
+  },
+  "subscription": {
+    "title": "Abonelik Planları",
+    "currentPlan": "Mevcut Plan",
+    "upgradePlan": "Planı Yükselt",
+    "downgradePlan": "Planı Düşür",
+    "cancelPlan": "Planı İptal Et",
+    "billingCycle": "Faturalama Döngüsü",
+    "monthly": "Aylık",
+    "yearly": "Yıllık",
+    "plans": {
+      "free": {
+        "name": "Ücretsiz",
+        "description": "Küçük projeler için",
+        "price": "₺0",
+        "features": [
+          "5 AI sorgusu/ay",
+          "1 proje",
+          "E-posta desteği",
+          "Temel analitik"
+        ]
+      },
+      "basic": {
+        "name": "Temel",
+        "description": "Küçük işletmeler için",
+        "price": "₺299",
+        "features": [
+          "100 AI sorgusu/ay",
+          "5 proje",
+          "Öncelikli destek",
+          "Gelişmiş analitik",
+          "API erişimi"
+        ]
+      },
+      "premium": {
+        "name": "Premium",
+        "description": "Büyüyen işletmeler için",
+        "price": "₺899",
+        "features": [
+          "1000 AI sorgusu/ay",
+          "20 proje",
+          "7/24 destek",
+          "Özel entegrasyonlar",
+          "Beyaz etiket çözümü"
+        ]
+      },
+      "enterprise": {
+        "name": "Kurumsal",
+        "description": "Büyük organizasyonlar için",
+        "price": "Özel Fiyat",
+        "features": [
+          "Sınırsız AI sorgusu",
+          "Sınırsız proje",
+          "Özel hesap yöneticisi",
+          "On-premise kurulum",
+          "SLA garantisi"
+        ]
+      }
+    }
+  },
+  "tenant": {
+    "title": "Kiracı Yönetimi",
+    "createTenant": "Yeni Kiracı",
+    "editTenant": "Kiracı Düzenle",
+    "deleteTenant": "Kiracı Sil",
+    "tenantName": "Kiracı Adı",
+    "tenantSlug": "Kiracı URL",
+    "sector": "Sektör",
+    "status": "Durum",
+    "createdAt": "Oluşturulma Tarihi",
+    "members": "Üyeler",
+    "sectors": {
+      "dentist": "Diş Hekimliği",
+      "beauty": "Güzellik & Estetik",
+      "restaurant": "Restoran",
+      "fitness": "Fitness & Spor",
+      "retail": "Perakende"
+    },
+    "status": {
+      "active": "Aktif",
+      "inactive": "Pasif",
+      "suspended": "Askıya Alınmış"
+    }
+  },
+  "analytics": {
+    "title": "Analitik Dashboard",
+    "overview": "Genel Bakış",
+    "performance": "Performans",
+    "users": "Kullanıcılar",
+    "revenue": "Gelir",
+    "reports": "Raporlar",
+    "export": "Dışa Aktar",
+    "dateRange": "Tarih Aralığı",
+    "lastWeek": "Son Hafta",
+    "lastMonth": "Son Ay",
+    "lastYear": "Son Yıl",
+    "custom": "Özel",
+    "metrics": {
+      "pageViews": "Sayfa Görüntüleme",
+      "uniqueVisitors": "Benzersiz Ziyaretçi",
+      "bounceRate": "Çıkış Oranı",
+      "avgSessionDuration": "Ortalama Oturum Süresi",
+      "conversionRate": "Dönüşüm Oranı",
+      "revenue": "Gelir",
+      "orders": "Sipariş",
+      "customers": "Müşteri"
+    }
+  },
+  "settings": {
+    "title": "Ayarlar",
+    "profile": "Profil Ayarları",
+    "account": "Hesap Ayarları",
+    "security": "Güvenlik",
+    "notifications": "Bildirimler",
+    "integrations": "Entegrasyonlar",
+    "billing": "Faturalama",
+    "general": "Genel Ayarlar",
+    "language": "Dil",
+    "timezone": "Saat Dilimi",
+    "currency": "Para Birimi",
+    "theme": "Tema",
+    "darkMode": "Karanlık Mod",
+    "lightMode": "Aydınlık Mod",
+    "autoMode": "Otomatik"
+  },
+  "accessibility": {
+    "title": "Erişilebilirlik Ayarları",
+    "fontSize": "Font Boyutu",
+    "fontSizes": {
+      "small": "Küçük",
+      "medium": "Normal",
+      "large": "Büyük"
+    },
+    "highContrast": "Yüksek Kontrast",
+    "highContrastDescription": "Metin ve arka plan arasındaki kontrastı artırır",
+    "keyboardShortcuts": "Klavye Kısayolları",
+    "skipToContent": "İçeriğe atla",
+    "nextElement": "Sonraki öğe",
+    "previousElement": "Önceki öğe",
+    "activate": "Etkinleştir",
+    "closeCancel": "Kapat/İptal",
+    "testTitle": "Erişilebilirlik Test Merkezi",
+    "testDescription": "Sitenizin erişilebilirlik standartlarına uygunluğunu test edin",
+    "runTest": "Erişilebilirlik Testi Çalıştır",
+    "overallScore": "Genel Skor",
+    "focusElements": "Odaklanabilir Öğeler",
+    "ariaLabels": "ARIA Etiketleri",
+    "keyboardNavigation": "Klavye Navigasyonu",
+    "screenReaderSupport": "Ekran Okuyucu Desteği",
+    "colorContrast": "Renk Kontrastı Test Sonuçları",
+    "recommendations": "İyileştirme Önerileri"
+  },
+  "errors": {
+    "404": {
+      "title": "Sayfa Bulunamadı",
+      "message": "Aradığınız sayfa mevcut değil veya taşınmış olabilir.",
+      "backHome": "Ana Sayfaya Dön"
+    },
+    "500": {
+      "title": "Sunucu Hatası",
+      "message": "Beklenmedik bir hata oluştu. Lütfen daha sonra tekrar deneyin.",
+      "tryAgain": "Tekrar Dene"
+    },
+    "network": {
+      "title": "Bağlantı Hatası",
+      "message": "İnternet bağlantınızı kontrol edin ve tekrar deneyin.",
+      "retry": "Yeniden Dene"
+    }
+  },
+  "forms": {
+    "validation": {
+      "required": "Bu alan zorunludur",
+      "email": "Geçerli bir e-posta adresi girin",
+      "minLength": "En az {{count}} karakter olmalı",
+      "maxLength": "En fazla {{count}} karakter olmalı",
+      "pattern": "Geçersiz format",
+      "numeric": "Sadece sayı girebilirsiniz",
+      "phone": "Geçerli bir telefon numarası girin",
+      "url": "Geçerli bir URL girin",
+      "date": "Geçerli bir tarih girin",
+      "passwordMatch": "Şifreler eşleşmiyor"
+    },
+    "placeholders": {
+      "email": "ornek@email.com",
+      "password": "Şifrenizi girin",
+      "firstName": "Adınız",
+      "lastName": "Soyadınız",
+      "company": "Şirket adı",
+      "phone": "+90 555 123 45 67",
+      "search": "Ara...",
+      "message": "Mesajınızı yazın..."
+    }
+  },
+  "dates": {
+    "today": "Bugün",
+    "yesterday": "Dün",
+    "tomorrow": "Yarın",
+    "thisWeek": "Bu Hafta",
+    "lastWeek": "Geçen Hafta",
+    "thisMonth": "Bu Ay",
+    "lastMonth": "Geçen Ay",
+    "thisYear": "Bu Yıl",
+    "lastYear": "Geçen Yıl",
+    "months": {
+      "january": "Ocak",
+      "february": "Şubat",
+      "march": "Mart",
+      "april": "Nisan",
+      "may": "Mayıs",
+      "june": "Haziran",
+      "july": "Temmuz",
+      "august": "Ağustos",
+      "september": "Eylül",
+      "october": "Ekim",
+      "november": "Kasım",
+      "december": "Aralık"
+    },
+    "days": {
+      "monday": "Pazartesi",
+      "tuesday": "Salı",
+      "wednesday": "Çarşamba",
+      "thursday": "Perşembe",
+      "friday": "Cuma",
+      "saturday": "Cumartesi",
+      "sunday": "Pazar"
+    }
+  }
+}
