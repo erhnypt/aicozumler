@@ -12,6 +12,7 @@ const About = lazy(() => import("../pages/about/page"));
 const Blog = lazy(() => import("../pages/blog/page"));
 const Login = lazy(() => import("../pages/auth/login"));
 const Register = lazy(() => import("../pages/auth/register"));
+const VerifyEmail = lazy(() => import("../pages/auth/verify-email"));
 const Dashboard = lazy(() => import("../pages/dashboard/page"));
 const TenantLayout = lazy(() => import("../components/TenantLayout").then(module => ({ default: module.TenantLayout })));
 const TenantHome = lazy(() => import("../pages/tenant/TenantHome"));
@@ -51,6 +52,10 @@ const mainRoutes: RouteObject[] = [
   {
     path: "/kayit",
     element: <LazyComponentWrapper><Register /></LazyComponentWrapper>,
+  },
+  {
+    path: "/dogrulama",
+    element: <LazyComponentWrapper><VerifyEmail /></LazyComponentWrapper>,
   },
   {
     path: "/dashboard",
