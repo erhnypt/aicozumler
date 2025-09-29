@@ -5,7 +5,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import Header from '../../components/feature/Header';
 import Footer from '../../components/feature/Footer';
 import { supabase } from '../../lib/supabase';
-import { slugify, sectorList, sectorSubdomain } from '../../utils/slug';
+import { slugify, sectorList } from '../../utils/slug';
 
 export default function Register() {
   const { signUp, user, loading } = useAuth();
@@ -24,9 +24,8 @@ export default function Register() {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
-  const [success, setSuccess] = useState(false);
+  const [success, setSuccess] = useState<null | { redirect: string }>(null);
 
-  // Redirect if already logged in
   if (!loading && user) {
     return <Navigate to="/" replace />;
   }
@@ -45,25 +44,21 @@ export default function Register() {
     setIsLoading(true);
     setError('');
 
-    // Form validation
     if (formData.password !== formData.confirmPassword) {
       setError('Şifreler eşleşmiyor.');
       setIsLoading(false);
       return;
     }
-
     if (formData.password.length < 8) {
       setError('Şifre en az 8 karakter olmalıdır.');
       setIsLoading(false);
       return;
     }
-
     if (!formData.agreeTerms) {
       setError('Kullanım koşullarını kabul etmelisiniz.');
       setIsLoading(false);
       return;
     }
-
     if (!formData.tenantName || formData.tenantName.trim().length < 3) {
       setError('Lütfen geçerli bir işletme/klinik adı girin.');
       setIsLoading(false);
@@ -77,7 +72,6 @@ export default function Register() {
         company: formData.company,
         phone: formData.phone
       });
-      
       if (error) {
         if (error.message?.includes('User already registered')) {
           setError('Bu e-posta adresi zaten kayıtlı. Giriş yapmayı deneyin.');
@@ -89,53 +83,18 @@ export default function Register() {
         return;
       }
 
-      // Supabase bazı projelerde e-posta doğrulaması gerektirir ve session dönmez.
-      const { data: sessionRes } = await supabase.auth.getSession();
-      const session = sessionRes?.session;
+      // Niyetini sakla: girişten sonra tenant oluşturacağız
+      const pending = {
+        sector: formData.sector,
+        tenantName: formData.tenantName,
+        tenantSlug: slugify(formData.tenantName),
+        company: formData.company
+      };
+      localStorage.setItem('pendingTenant', JSON.stringify(pending));
 
-      if (!session) {
-        // Oturum yoksa tenant oluşturmayı daha sonra yapmak üzere sakla
-        const pending = {
-          sector: formData.sector,
-          tenantName: formData.tenantName,
-          company: formData.company
-        };
-        localStorage.setItem('pendingTenant', JSON.stringify(pending));
-        setSuccess(true);
-        return;
-      }
-
-      // Oturum varsa hemen tenant oluştur
-      const slug = slugify(formData.tenantName);
-      const sub = sectorSubdomain(formData.sector);
-
-      const { data: tenant, error: tenantErr } = await supabase
-        .from('tenants')
-        .insert({
-          name: formData.tenantName,
-          slug,
-          sector: formData.sector,
-          subdomain: sub
-        })
-        .select()
-        .single();
-
-      if (tenantErr) {
-        console.error('Tenant create error:', tenantErr);
-        setError('Tenant oluşturulurken hata oluştu. Lütfen e-posta doğrulamasını tamamladıktan sonra giriş yapıp tekrar deneyin.');
-        return;
-      }
-
-      await supabase
-        .from('profiles')
-        .update({ tenant_id: tenant.id, company: formData.company })
-        .eq('email', formData.email);
-
-      await supabase
-        .from('tenant_members')
-        .insert({ tenant_id: tenant.id, role: 'owner' });
-
-      setSuccess(true);
+      // Kullanıcıya net geri bildirim ver: e-postanı kontrol et
+      setSuccess({ redirect: '/dogrulama' });
+      return;
     } catch (err) {
       setError('Bir hata oluştu. Lütfen tekrar deneyin.');
     } finally {
@@ -144,34 +103,7 @@ export default function Register() {
   };
 
   if (success) {
-    const sub = sectorSubdomain(formData.sector);
-    const slug = slugify(formData.tenantName);
-    const target = `/${sub}/${slug}`; // Path-based route
-    return (
-      <div className="min-h-screen">
-        <Header />
-        <section className="py-16 bg-gray-50 min-h-screen flex items-center">
-          <div className="max-w-md mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div className="bg-white rounded-2xl shadow-lg p-8 text-center">
-              <div className="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-6">
-                <i className="ri-check-line text-2xl text-green-600"></i>
-              </div>
-              <h1 className="text-2xl font-bold text-gray-900 mb-4">Kayıt Başarılı!</h1>
-              <p className="text-gray-600 mb-6">
-                Eğer e-posta doğrulaması gerekiyorsa lütfen gelen kutunuzu kontrol edin. İlk girişinizden sonra işletmeniz otomatik oluşturulacaktır.
-              </p>
-              <Link
-                to="/giris"
-                className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors cursor-pointer whitespace-nowrap"
-              >
-                Giriş Yap
-              </Link>
-            </div>
-          </div>
-        </section>
-        <Footer />
-      </div>
-    );
+    return <Navigate to={success.redirect} replace />;
   }
 
   return (
