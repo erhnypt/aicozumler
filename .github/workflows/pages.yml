@@ -30,6 +30,16 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Debug env lengths
+        run: |
+          echo "URL_LEN=$(echo -n "$VITE_PUBLIC_SUPABASE_URL" | wc -c)"
+          echo "KEY_LEN=$(echo -n "$VITE_PUBLIC_SUPABASE_ANON_KEY" | wc -c)"
+          echo "ENC_LEN=$(echo -n "$VITE_ENCRYPTION_KEY" | wc -c)"
+        env:
+          VITE_PUBLIC_SUPABASE_URL: ${{ secrets.VITE_PUBLIC_SUPABASE_URL }}
+          VITE_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.VITE_PUBLIC_SUPABASE_ANON_KEY }}
+          VITE_ENCRYPTION_KEY: ${{ secrets.VITE_ENCRYPTION_KEY }}
+
       - name: Build
         env:
           BASE_PATH: '/'
