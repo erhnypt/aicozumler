@@ -70,7 +70,7 @@ jobs:
         lhci autorun
     
     - name: Archive build artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: build-files-${{ matrix.node-version }}
         path: |
@@ -218,7 +218,7 @@ jobs:
         lighthouse https://aicozumler.com --output json --output-path ./lighthouse-report.json
         
     - name: Upload Lighthouse report
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: lighthouse-report
         path: lighthouse-report.json
