@@ -104,14 +104,24 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     phone?: string
   }) => {
     try {
+      const emailRedirectTo = `${window.location.origin}/dogrulama`
       const { data, error } = await supabase.auth.signUp({
         email,
         password,
+        options: {
+          emailRedirectTo,
+          data: {
+            first_name: userData.firstName,
+            last_name: userData.lastName,
+            company: userData.company || null,
+            phone: userData.phone || null,
+          }
+        }
       })
 
       if (error) return { error }
 
-      // Create profile after successful signup
+      // Create profile after successful signup (only if user object exists immediately)
       if (data.user) {
         const { error: profileError } = await supabase
           .from('profiles')
