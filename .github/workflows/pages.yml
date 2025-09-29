@@ -34,6 +34,11 @@ jobs:
         env:
           BASE_PATH: '/'
           IS_PREVIEW: 'false'
+          VITE_APP_ENV: 'production'
+          VITE_APP_VERSION: '${{ github.sha }}'
+          VITE_PUBLIC_SUPABASE_URL: ${{ secrets.VITE_PUBLIC_SUPABASE_URL }}
+          VITE_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.VITE_PUBLIC_SUPABASE_ANON_KEY }}
+          VITE_ENCRYPTION_KEY: ${{ secrets.VITE_ENCRYPTION_KEY }}
         run: npm run build
 
       - name: Add SPA fallback (404.html)
