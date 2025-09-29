@@ -36,6 +36,9 @@ jobs:
           IS_PREVIEW: 'false'
         run: npm run build
 
+      - name: Add SPA fallback (404.html)
+        run: cp out/index.html out/404.html
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
