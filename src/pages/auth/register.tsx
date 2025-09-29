@@ -4,6 +4,8 @@ import { Link, Navigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import Header from '../../components/feature/Header';
 import Footer from '../../components/feature/Footer';
+import { supabase } from '../../lib/supabase';
+import { slugify, sectorList, sectorSubdomain } from '../../utils/slug';
 
 export default function Register() {
   const { signUp, user, loading } = useAuth();
@@ -14,6 +16,8 @@ export default function Register() {
     password: '',
     confirmPassword: '',
     company: '',
+    sector: 'dentist',
+    tenantName: '',
     phone: '',
     agreeTerms: false,
     subscribeNewsletter: true
@@ -27,8 +31,9 @@ export default function Register() {
     return <Navigate to="/" replace />;
   }
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, checked } = e.target;
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value, type } = e.target as HTMLInputElement;
+    const checked = (e.target as HTMLInputElement).checked;
     setFormData(prev => ({
       ...prev,
       [name]: type === 'checkbox' ? checked : value
@@ -59,6 +64,12 @@ export default function Register() {
       return;
     }
 
+    if (!formData.tenantName || formData.tenantName.trim().length < 3) {
+      setError('Lütfen geçerli bir işletme/klinik adı girin.');
+      setIsLoading(false);
+      return;
+    }
+
     try {
       const { error } = await signUp(formData.email, formData.password, {
         firstName: formData.firstName,
@@ -76,6 +87,39 @@ export default function Register() {
           setError('Kayıt oluşturulamadı. Lütfen tekrar deneyin.');
         }
       } else {
+        // Supabase tarafında kullanıcı oluştu; tenant oluştur
+        const slug = slugify(formData.tenantName);
+        const sub = sectorSubdomain(formData.sector);
+
+        const { data: tenant, error: tenantErr } = await supabase
+          .from('tenants')
+          .insert({
+            name: formData.tenantName,
+            slug,
+            sector: formData.sector,
+            subdomain: sub
+          })
+          .select()
+          .single();
+
+        if (tenantErr) {
+          console.error('Tenant create error:', tenantErr);
+          setError('Tenant oluşturulurken hata oluştu. Lütfen tekrar deneyin.');
+          setIsLoading(false);
+          return;
+        }
+
+        // Profili tenant ile ilişkilendir
+        await supabase
+          .from('profiles')
+          .update({ tenant_id: tenant.id, company: formData.company })
+          .eq('email', formData.email);
+
+        // Üyeliği ekle
+        await supabase
+          .from('tenant_members')
+          .insert({ tenant_id: tenant.id, role: 'owner' });
+
         setSuccess(true);
       }
     } catch (err) {
@@ -86,33 +130,10 @@ export default function Register() {
   };
 
   if (success) {
-    return (
-      <div className="min-h-screen">
-        <Header />
-        
-        <section className="py-16 bg-gray-50 min-h-screen flex items-center">
-          <div className="max-w-md mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div className="bg-white rounded-2xl shadow-lg p-8 text-center">
-              <div className="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-6">
-                <i className="ri-check-line text-2xl text-green-600"></i>
-              </div>
-              <h1 className="text-2xl font-bold text-gray-900 mb-4">Kayıt Başarılı!</h1>
-              <p className="text-gray-600 mb-6">
-                Hesabınız başarıyla oluşturuldu. E-posta adresinize gönderilen doğrulama linkine tıklayarak hesabınızı aktifleştirin.
-              </p>
-              <Link
-                to="/giris"
-                className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors cursor-pointer whitespace-nowrap"
-              >
-                Giriş Yap
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        <Footer />
-      </div>
-    );
+    const sub = sectorSubdomain(formData.sector);
+    const slug = slugify(formData.tenantName);
+    const target = `/${sub}/${slug}`; // Path-based route; DNS tarafında subdomain isteğe bağlı
+    return <Navigate to={target} replace />;
   }
 
   return (
@@ -184,6 +205,40 @@ export default function Register() {
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
                   placeholder="ornek@email.com"
                 />
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="sector" className="block text-sm font-medium text-gray-700 mb-2">
+                    Sektör *
+                  </label>
+                  <select
+                    id="sector"
+                    name="sector"
+                    value={formData.sector}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                  >
+                    {sectorList.map(s => (
+                      <option key={s.key} value={s.key}>{s.label}</option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label htmlFor="tenantName" className="block text-sm font-medium text-gray-700 mb-2">
+                    İşletme/Klinik Adı *
+                  </label>
+                  <input
+                    type="text"
+                    id="tenantName"
+                    name="tenantName"
+                    value={formData.tenantName}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                    placeholder="Örn: Ahmet Diş Polikliniği"
+                  />
+                </div>
               </div>
 
               <div>
