@@ -92,12 +92,14 @@ export default function Register() {
       };
       localStorage.setItem('pendingTenant', JSON.stringify(pending));
 
-      // Kullanıcıya net geri bildirim ver: e-postanı kontrol et
-      setSuccess({ redirect: '/dogrulama' });
+      // Doğrudan doğrulama sayfasına yönlendir
+      setIsLoading(false);
+      window.location.replace('/dogrulama');
       return;
     } catch (err) {
       setError('Bir hata oluştu. Lütfen tekrar deneyin.');
     } finally {
+      // isLoading zaten false yapılmış olabilir, yine de güvenceye alalım
       setIsLoading(false);
     }
   };
