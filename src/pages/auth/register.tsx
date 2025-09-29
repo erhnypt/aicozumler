@@ -79,49 +79,63 @@ export default function Register() {
       });
       
       if (error) {
-        if (error.message.includes('User already registered')) {
+        if (error.message?.includes('User already registered')) {
           setError('Bu e-posta adresi zaten kayıtlı. Giriş yapmayı deneyin.');
-        } else if (error.message.includes('Password should be at least')) {
+        } else if (error.message?.includes('Password should be at least')) {
           setError('Şifre en az 6 karakter olmalıdır.');
         } else {
           setError('Kayıt oluşturulamadı. Lütfen tekrar deneyin.');
         }
-      } else {
-        // Supabase tarafında kullanıcı oluştu; tenant oluştur
-        const slug = slugify(formData.tenantName);
-        const sub = sectorSubdomain(formData.sector);
-
-        const { data: tenant, error: tenantErr } = await supabase
-          .from('tenants')
-          .insert({
-            name: formData.tenantName,
-            slug,
-            sector: formData.sector,
-            subdomain: sub
-          })
-          .select()
-          .single();
-
-        if (tenantErr) {
-          console.error('Tenant create error:', tenantErr);
-          setError('Tenant oluşturulurken hata oluştu. Lütfen tekrar deneyin.');
-          setIsLoading(false);
-          return;
-        }
-
-        // Profili tenant ile ilişkilendir
-        await supabase
-          .from('profiles')
-          .update({ tenant_id: tenant.id, company: formData.company })
-          .eq('email', formData.email);
-
-        // Üyeliği ekle
-        await supabase
-          .from('tenant_members')
-          .insert({ tenant_id: tenant.id, role: 'owner' });
-
-        setSuccess(true);
+        return;
       }
+
+      // Supabase bazı projelerde e-posta doğrulaması gerektirir ve session dönmez.
+      const { data: sessionRes } = await supabase.auth.getSession();
+      const session = sessionRes?.session;
+
+      if (!session) {
+        // Oturum yoksa tenant oluşturmayı daha sonra yapmak üzere sakla
+        const pending = {
+          sector: formData.sector,
+          tenantName: formData.tenantName,
+          company: formData.company
+        };
+        localStorage.setItem('pendingTenant', JSON.stringify(pending));
+        setSuccess(true);
+        return;
+      }
+
+      // Oturum varsa hemen tenant oluştur
+      const slug = slugify(formData.tenantName);
+      const sub = sectorSubdomain(formData.sector);
+
+      const { data: tenant, error: tenantErr } = await supabase
+        .from('tenants')
+        .insert({
+          name: formData.tenantName,
+          slug,
+          sector: formData.sector,
+          subdomain: sub
+        })
+        .select()
+        .single();
+
+      if (tenantErr) {
+        console.error('Tenant create error:', tenantErr);
+        setError('Tenant oluşturulurken hata oluştu. Lütfen e-posta doğrulamasını tamamladıktan sonra giriş yapıp tekrar deneyin.');
+        return;
+      }
+
+      await supabase
+        .from('profiles')
+        .update({ tenant_id: tenant.id, company: formData.company })
+        .eq('email', formData.email);
+
+      await supabase
+        .from('tenant_members')
+        .insert({ tenant_id: tenant.id, role: 'owner' });
+
+      setSuccess(true);
     } catch (err) {
       setError('Bir hata oluştu. Lütfen tekrar deneyin.');
     } finally {
@@ -132,8 +146,32 @@ export default function Register() {
   if (success) {
     const sub = sectorSubdomain(formData.sector);
     const slug = slugify(formData.tenantName);
-    const target = `/${sub}/${slug}`; // Path-based route; DNS tarafında subdomain isteğe bağlı
-    return <Navigate to={target} replace />;
+    const target = `/${sub}/${slug}`; // Path-based route
+    return (
+      <div className="min-h-screen">
+        <Header />
+        <section className="py-16 bg-gray-50 min-h-screen flex items-center">
+          <div className="max-w-md mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div className="bg-white rounded-2xl shadow-lg p-8 text-center">
+              <div className="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-6">
+                <i className="ri-check-line text-2xl text-green-600"></i>
+              </div>
+              <h1 className="text-2xl font-bold text-gray-900 mb-4">Kayıt Başarılı!</h1>
+              <p className="text-gray-600 mb-6">
+                Eğer e-posta doğrulaması gerekiyorsa lütfen gelen kutunuzu kontrol edin. İlk girişinizden sonra işletmeniz otomatik oluşturulacaktır.
+              </p>
+              <Link
+                to="/giris"
+                className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors cursor-pointer whitespace-nowrap"
+              >
+                Giriş Yap
+              </Link>
+            </div>
+          </div>
+        </section>
+        <Footer />
+      </div>
+    );
   }
 
   return (
